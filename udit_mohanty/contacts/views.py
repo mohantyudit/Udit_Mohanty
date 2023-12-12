@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from django.views.generic import ListView,CreateView
+from django.views.generic import ListView,CreateView,DetailView
 from django.urls import reverse_lazy
 from .models import Contact
 from .contact_form import ContactForm
@@ -18,3 +18,6 @@ def ContactCreateView(request):
         form = ContactForm()
 
     return render(request, 'contacts/contact_form.html', {'form': form})
+
+class ContactDetailView(DetailView):
+    model = Contact
